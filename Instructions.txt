@@ -1,0 +1,28 @@
+Install the latest (bit-type appropriate) version of Python 3.7.x from www.python.org
+
+From command line:
+	Navigate to the folder containing the scripts.
+	Execute at the command line:  pip install -r requirements.txt
+
+The above will install the necessary 3rd party modules for the script (Including JunosPyEZ)
+
+!! Your device(s) will need to have netconf and ssh enabled and you will need appropriate credentials for the device(s) !!
+
+*********
+
+Update the routers_lsp.yml (text) file with appropriate credentials and device interface addresses of the routers in question.
+
+
+*********
+
+From the folder containing the script, you can now execute as:
+python lspverify.py
+	# This will look in the yaml configuration file for a list of routers under the "devices_to_query" header
+	# and will, one at a time for now, pull and print all of the LSP information from those routers.
+python lspverify.py <router IP>
+	# The above will print all LSP information from one router with no error checking.
+python lspverify.py <router IP 1> <router IP 2>
+	# The above will print all of the LSP information from two routers with no error checking.
+python lspverify.py <router IP 1> <router IP 2> --compare
+	# The above will only print the LSP information from those two routers in which the LSP destination is the other router.
+	# This also performs asymmetrical path checking on the _ACTIVE_ path of the LSP.

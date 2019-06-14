@@ -1,0 +1,4 @@
+colorama
+PyYAML
+lxml
+junos-eznc
