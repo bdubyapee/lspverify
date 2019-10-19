@@ -8,6 +8,7 @@
 #                  Two IP Address arguments followed by '--compare' will pull all LSP information from both routers, but
 #                      will only display LSP information for each router that is destined to the other.
 #                      Also checks for asymmetrical path between the two on the Active Path.
+# BWP : 10/19/19 : *Updated some comments.  Note there are items for investigation on next code review (See comments)
 
 # System Imports
 import time
@@ -76,7 +77,7 @@ class labelSwitchedPath(object):
         self.lsp_state = lsp_state
         self.lsp_name = lsp_name
         self.lsp_active_path = lsp_active_path
-        self.lsp_paths = lsp_paths # A list object containing paths associated with this LSP
+        self.lsp_paths = lsp_paths
         self.color_BG = f"{Style.BRIGHT}{Fore.GREEN}"
         if self.lsp_state == "Down":
             self.color_BR = f"{Style.BRIGHT}{Fore.RED}"
@@ -185,8 +186,8 @@ if __name__ == "__main__":
 
         compare_rev_lsp = False
 
-        # Determine if we have CLI arguments  (Fix for error checking later)
-        # Fix this to suck less sometime.
+        # Determine if we have CLI arguments
+        # *This may be sexier as a dict. Evaluate on next review.
         if len(sys.argv) == 1:
             devices_address_list = [dev for dev in device_loopbacks.values()]
         elif len(sys.argv) == 2:
@@ -197,6 +198,7 @@ if __name__ == "__main__":
             devices_address_list = [str(dev) for dev in sys.argv[1:3]]
             compare_rev_lsp = True
         else:
+            # Update this to be informative. Or, look at argparse module and do it correctly.
             print("Not valid input")
             sys.exit()
 
