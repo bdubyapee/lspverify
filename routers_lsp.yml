@@ -9,12 +9,12 @@ credentials:
     port: 22
 
 routerlist:
-    35thPE1:
+    Site1PE1:
         ipaddresses:
             - 172.31.253.254
             - 172.31.253.201
             - 172.31.253.198
-    35thPE2:
+    Site1PE2:
         ipaddresses:
             - 172.31.253.253
             - 172.31.253.250
@@ -22,12 +22,12 @@ routerlist:
             - 172.31.252.250
             - 172.31.252.246
             - 172.31.252.242
-    LasallePE1:
+    Site2PE1:
         ipaddresses:
             - 172.31.253.249
             - 172.31.253.246
             - 172.31.253.174
-    LasallePE2:
+    Site2PE2:
         ipaddresses:
             - 172.31.253.245
             - 172.31.253.242
